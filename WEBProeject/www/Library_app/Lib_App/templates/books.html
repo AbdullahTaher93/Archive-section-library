@@ -1,0 +1,64 @@
+{% extends "base_generic.html" %}
+{% block content %}
+
+
+
+<table width="100%" class="table table-bordered table-dark"> <!-- cellspacing='0' is important, must stay -->
+
+    <!-- Header -->
+
+    
+  
+    <thead >
+        <tr>
+            <th scope="col">Book Category</th>
+            <th scope="col">Book name</th>
+            <th scope="col">Author name</th>
+            <th scope="col">Publisher  name</th>
+            <th scope="col">Copies Number </th>
+            <th scope="col">Books date</th>
+            {% if user.is_authenticated %}
+            <th scope="col">Action</th>
+            {% endif %}
+            
+
+        </tr>
+        
+    </thead>
+    
+
+    <!-- Body Tabla -->
+    <tbody>
+        
+        {% for book in books %}
+
+        
+        
+            <tr>
+                <td cope="row"><a href="">{{book.books_id}}</a></tdcope="row">
+                <td><a href="">{{book.books_name}}</a></td>
+                <td>{{ book.author_name }}</td>
+                <td>{{ book.publisher_name }}</td>
+                <td>{{ book.books_numbers }}</td>
+                <td>{{ book.books_date }}</td>
+                {% if user.is_authenticated %}
+                <td>
+                 <a href="{% url 'editbook' book.id %}" role="button" class="btn btn-primary btn-sm">Edit</a>
+                 <a href="{% url 'deletebook' book.id %}" role="button" class="btn btn-danger btn-sm">Delete</a>
+                 <a href="{% url 'borrowbook' book.id %}" role="button" class="btn btn-warning">Brrow</a>
+                </td>
+                {% endif %}
+                
+            </tr>
+         
+        {% endfor %}
+    </tbody>
+
+
+</table>
+
+
+
+
+
+{% endblock %}

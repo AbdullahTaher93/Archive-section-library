@@ -1,0 +1,64 @@
+{% extends "base_generic.html" %}
+{% block content %}
+{% if user.is_authenticated %}
+
+
+
+
+
+
+
+<table width="100%" class="table table-bordered table-dark"> <!-- cellspacing='0' is important, must stay -->
+
+    <!-- Header -->
+
+    
+  
+    <thead >
+        <tr>
+            <th scope="col">Number</th>
+            <th scope="col">Person ID</th>
+            <th scope="col">Person Name</th>
+            <th scope="col">Book Name</th>
+            <th scope="col">Return Date</th>>
+           
+         
+            
+
+        </tr>
+        
+    </thead>
+    
+
+    <!-- Body Tabla -->
+    <tbody>
+        
+        {% for returner in returners %}
+
+        
+        
+            <tr>
+                <td cope="row">{{returner.id}}</tdcope="row">
+                <td>{{returner.person_id}}</td>
+                <td><a href="">{{ returner.person_name }}</a></td>
+                <td>{{ returner.book_name }}</td>
+                <td>{{ returner.return_date }}</td>
+                
+               
+                
+                
+                
+            </tr>
+         
+        {% endfor %}
+    </tbody>
+
+
+</table>
+
+
+
+
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends "base_generic.html" %}
+{% block content %}
+{% if user.is_authenticated %}
+
+
+
+
+
+
+
+<table width="100%" class="table table-bordered table-dark"> <!-- cellspacing='0' is important, must stay -->
+
+    <!-- Header -->
+
+    
+  
+    <thead >
+        <tr>
+            <th scope="col">Number</th>
+            <th scope="col">Person ID</th>
+            <th scope="col">Person Name</th>
+            <th scope="col">Book Name</th>
+            <th scope="col">Borrow Date</th>>
+            <th scope="col">Action</th>
+         
+            
+
+        </tr>
+        
+    </thead>
+    
+
+    <!-- Body Tabla -->
+    <tbody>
+        
+        {% for Borrower in Borrowers %}
+
+        
+        
+            <tr>
+                <td cope="row">{{Borrower.id}}</tdcope="row">
+                <td>{{Borrower.person_id}}</td>
+                <td><a href="">{{ Borrower.person_name }}</a></td>
+                <td>{{ Borrower.book_name }}</td>
+                <td>{{ Borrower.issue_date }}</td>
+                
+               
+                <td>
+                 <a href="{% url 'returnbooks' Borrower.id %}" role="button" class="btn btn-success">Return book</a>
+                 
+                </td>
+                
+                
+            </tr>
+         
+        {% endfor %}
+    </tbody>
+
+
+</table>
+
+
+
+
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends "base_generic.html" %}
+{% block content %}
+{% if user.is_authenticated %}
+
+
+
+
+
+
+
+<table width="100%" class="table table-bordered table-dark"> <!-- cellspacing='0' is important, must stay -->
+
+    <!-- Header -->
+
+    
+  
+    <thead >
+        <tr>
+            <th scope="col">Number</th>
+            <th scope="col">Person ID</th>
+            <th scope="col">Person Name</th>
+            <th scope="col">Person Category </th>
+            <th scope="col">Person Due</th>
+            <th scope="col">Action</th>
+         
+            
+
+        </tr>
+        
+    </thead>
+    
+
+    <!-- Body Tabla -->
+    <tbody>
+        
+        {% for person in persons %}
+
+        
+        
+            <tr>
+                <td cope="row">{{person.id}}</tdcope="row">
+                <td>{{person.person_id}}</td>
+                <td><a href="">{{ person.person_name }}</a></td>
+                <td>{{ person.person_type }}</td>
+                <td>{{ person.person_due }}</td>
+                
+               
+                <td>
+                 <a href="{% url 'editperson' person.id %}" role="button" class="btn btn-primary btn-sm">Edit</a>
+                 <a href="{% url 'deleteperson' person.id %}" role="button" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+                
+                
+            </tr>
+         
+        {% endfor %}
+    </tbody>
+
+
+</table>
+
+
+<h1>{{ book.books_name }}</h1>
+
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends "base_generic.html" %}
+{% block content %}
+
+
+
+<div class="card" style="width: 30rem;">
+    <div div class="card-header">
+    <h3>Add a New Category </h3>
+        <form method="POST" >
+                {% csrf_token %}
+                
+                    
+                    <table>
+                    {{ form.as_table }}
+                    </table>
+               
+            </div>
+                <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+</div>
+<p></p><p></p><p></p>
+<table width="100%" class="table table-bordered table-dark"> <!-- cellspacing='0' is important, must stay -->
+
+    <!-- Header -->
+
+    
+  
+    <thead >
+        <tr>
+            
+            <th scope="col">ID </th>
+            <th scope="col">Category</th>
+            {% if user.is_authenticated %}
+            <th scope="col">Action</th>
+            {% endif %}
+            
+
+        </tr>
+        
+    </thead>
+    
+
+    <!-- Body Tabla -->
+    <tbody>
+        
+        {% for category in books_types %}
+
+        
+        
+            <tr>
+                <td cope="row"></a>{{category.id}}</tdcope="row">
+                <td><a href="/lib/show-books-by-category/{{category.id}}">{{category.book_type_name}}</a></td>
+                
+                {% if user.is_authenticated %}
+                <td>
+                 <a href="" role="button" class="btn btn-primary btn-sm">Edit</a>
+                 <a href="{% url 'deleteCategory' category.id  %}" role="button" class="btn btn-danger btn-sm">Delete</a>
+                 <a href="{% url 'addnewbook' category.id  %}" role="button" class="btn btn-warning">Add a new book</a>
+                </td>
+                {% endif %}
+                
+            </tr>
+         
+        {% endfor %}
+    </tbody>
+
+
+</table>
+
+
+
+
+
+{% endblock %}
