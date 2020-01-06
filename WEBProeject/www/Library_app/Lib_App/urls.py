@@ -1,4 +1,5 @@
 from django.urls import path
+from django.conf.urls import include, url
 
 from . import views
 
@@ -55,6 +56,23 @@ urlpatterns = [
 
     #returnbook
     path('showreturners/', views.showreturners ,name='showreturners'),
+
+    #search books
+    url(r'^search_books/', views.search_book, name="search_books"),
+
+    #search books
+    url(r'^search_student/', views.search_student, name="search_student"),
+
+    
+
+    #search borrow
+    url(r'^search_b/', views.search_borrow, name="search_b"),
+
+    #search returen
+    url(r'^search_return/', views.search_return, name="search_return"),
+
+
+  
 
 
 

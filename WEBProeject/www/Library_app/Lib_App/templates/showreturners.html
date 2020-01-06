@@ -4,7 +4,13 @@
 
 
 
-
+<center> <form class="form" id="searchform" action="{% url 'search_return' %}" method="get">
+    <div class="form-group">
+    <input type="text" class="col-5  form-control-lg"  placeholder="enter Person ID" name="q" type="text"/>
+    <button type="button"  class="btn btn-success form-control-lg" onclick="searchform.submit()">Search</button>
+        </div>
+</form>
+   </center>
 
 
 

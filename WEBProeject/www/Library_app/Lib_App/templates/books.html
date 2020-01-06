@@ -1,7 +1,13 @@
 {% extends "base_generic.html" %}
 {% block content %}
 
-
+<center> <form class="form" id="searchform" action="{% url 'search_books' %}" method="get">
+    <div class="form-group">
+    <input type="text" class="col-5  form-control-lg"  placeholder="enter Book Name" name="q" type="text"/>
+    <button type="button"  class="btn btn-success form-control-lg" onclick="searchform.submit()">Search</button>
+        </div>
+</form>
+   </center>
 
 <table width="100%" class="table table-bordered table-dark"> <!-- cellspacing='0' is important, must stay -->
 

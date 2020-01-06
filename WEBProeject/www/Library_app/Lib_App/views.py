@@ -266,6 +266,49 @@ def showreturners (request):
     
     return render(request, 'showreturners.html',{'returners':returners})
 
+import re
+
+from django.db.models import Q
+
+def search_book(request):
+    books= models.books.objects.filter(books_name = request.GET['q'])
+    if books == None :
+        return render(request, 'books.html',{})
+    else:
+        return render(request, 'books.html',{'books':books})
+
+
+
+def search_student(request):
+    persons= models.persons.objects.filter( person_id = request.GET['q'])
+    if persons == None :
+        return render(request, 'showstudents.html',{})
+    else:
+        return render(request, 'showstudents.html',{'persons':persons})
+
+
+
+
+
+def search_borrow(request):
+    
+    Borrowers= models.borrowerbook.objects.filter(person_id = request.GET['q'])
+    if Borrowers == None :
+        return render(request, 'showborrowers.html',{})
+    else:
+        return render(request, 'showborrowers.html',{'Borrowers':Borrowers})
+
+
+def search_return(request):
+    
+    returners= models.returnbook.objects.filter(person_id = request.GET['q'])
+    if returners == None :
+        return render(request, 'showreturners.html',{})
+    else:
+        return render(request, 'showreturners.html',{'returners':returners})
+
+    
+
     
 
    
